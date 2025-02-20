@@ -1,10 +1,16 @@
-def encontrar_indice(arr, x):
-    try:
-        return arr.index(x)
-    except ValueError:
-        return -1
+def square(number):
+    """
+    Retorna o número de grãos em um quadrado específico do tabuleiro.
+    O número de grãos dobra a cada quadrado, começando com 1 no primeiro quadrado.
+    """
+    if number < 1 or number > 64:
+        raise ValueError("square must be between 1 and 64")
 
-# Testando os exemplos
-print(encontrar_indice([1, 2, 3, 4], 3))        # Saída: 2
-print(encontrar_indice([10, 8, 30, 4, 5], 5))   # Saída: 4
-print(encontrar_indice([10, 8, 30], 6))         # Saída: -1
+    return 2 ** (number - 1)  # O primeiro quadrado tem 2^(1-1) = 2^0 = 1
+
+
+def total():
+    """
+    Retorna o número total de grãos no tabuleiro de xadrez (soma de todos os quadrados).
+    """
+    return sum(square(n) for n in range(1, 65))  # Soma os grãos de todos os 64 quadrados

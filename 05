@@ -1,0 +1,12 @@
+def is_armstrong_number(number):
+    """
+    Verifica se um número é um número de Armstrong.
+    Um número de Armstrong é aquele que é igual à soma de seus dígitos,
+    cada um elevado à potência do número total de dígitos.
+    """
+    digits = [int(digit) for digit in str(number)]  # Converte o número em lista de dígitos
+    num_digits = len(digits)  # Conta quantos dígitos o número tem
+    
+    armstrong_sum = sum(digit ** num_digits for digit in digits)  # Soma dos dígitos elevados à potência
+    
+    return armstrong_sum == number  # Retorna True se for um número de Armstrong, senão False
