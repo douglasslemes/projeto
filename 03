@@ -1,0 +1,51 @@
+def caracteres_ausentes(string):
+    """
+    Encontra todos os caracteres ausentes em uma string para torná-la um pangrama.
+
+    Args:
+        string: A string de entrada.
+
+    Returns:
+        Uma string contendo os caracteres ausentes em ordem alfabética.
+    """
+
+    presentes = set()
+    for char in string:
+        if 'a' <= char <= 'z':
+            presentes.add(char)
+        elif 'A' <= char <= 'Z':
+            presentes.add(char.lower())
+
+    ausentes = ""
+    for char in "abcdefghijklmnopqrstuvwxyz":
+        if char not in presentes:
+            ausentes += char
+
+    return ausentes
+
+# Exemplos de uso
+entrada1 = "bem-vindo ao geeksforgeeks"
+saida1 = caracteres_ausentes(entrada1)
+print(f"Entrada: {entrada1}")
+print(f"Saída: {saida1}")  # Saída esperada: abdhijnpquvxyz
+
+entrada2 = "A rápida raposa marrom salta"
+saida2 = caracteres_ausentes(entrada2)
+print(f"Entrada: {entrada2}")
+print(f"Saída: {saida2}")  # Saída esperada: adglvyz
+
+# Testes com exemplos mais simples
+entrada3 = "abcdefghij"
+saida3 = caracteres_ausentes(entrada3)
+print(f"Entrada: {entrada3}")
+print(f"Saída: {saida3}")  # Saída esperada: klmnopqrstuvwxyz
+
+entrada4 = "xyz"
+saida4 = caracteres_ausentes(entrada4)
+print(f"Entrada: {entrada4}")
+print(f"Saída: {saida4}")  # Saída esperada: abcdefghijklmnopqrstuvw
+
+entrada5 = ""  # String vazia
+saida5 = caracteres_ausentes(entrada5)
+print(f"Entrada: {entrada5}")
+print(f"Saída: {saida5}")  # Saída esperada: abcdefghijklmnopqrstuvwxyz
