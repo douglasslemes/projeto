@@ -1,0 +1,15 @@
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n - 1):  # Número de passagens
+        trocou = False
+        for j in range(n - 1 - i):  # Comparação entre elementos adjacentes
+            if arr[j] > arr[j + 1]:  # Se estiver fora de ordem, troca
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+                trocou = True
+        if not trocou:  # Se não houve troca, a lista já está ordenada
+            break
+    return arr
+
+# Testando o algoritmo
+arr = [64, 34, 25, 12, 22, 11, 90]
+print("Array ordenado:", bubble_sort(arr))
