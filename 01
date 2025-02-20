@@ -1,0 +1,10 @@
+def encontrar_indice(arr, x):
+    try:
+        return arr.index(x)
+    except ValueError:
+        return -1
+
+# Testando os exemplos
+print(encontrar_indice([1, 2, 3, 4], 3))        # Saída: 2
+print(encontrar_indice([10, 8, 30, 4, 5], 5))   # Saída: 4
+print(encontrar_indice([10, 8, 30], 6))         # Saída: -1
